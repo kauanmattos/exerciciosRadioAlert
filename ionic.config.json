@@ -1,0 +1,7 @@
+{
+  "name": "exerciciosRadioAlert",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
