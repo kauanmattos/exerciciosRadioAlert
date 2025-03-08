@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
+    <ion-title style="text-align: center;">
       Exercicios Radio e Alert
     </ion-title>
   </ion-toolbar>
@@ -15,17 +15,21 @@
   [buttons]="alertButtons"
   ></ion-alert>
 
+  <h2>Exercicio 1</h2>
+
   <ion-item>
-    <ion-input label="Valor da Compra" labelPlacement="floating" placeholder="Digite o valor da compra" type="number" 
+    <ion-input label="Valor da Compra" labelPlacement="floating" placeholder="Digite o valor da compra" type="number"
     [(ngModel)]="valorCompra"></ion-input>
   </ion-item>
+
+  <ion-button id="ver-desconto" (click)="calculoDesconto()">Ver Desconto</ion-button>
 
   <ion-radio-group value="desconto" [(ngModel)]="desconto" id="ver-desconto" (click)="calculoDesconto()"><br>
     <ion-radio value="creditoVista" labelPlacement="end">Crédito a vista</ion-radio><br />
     <ion-radio value="creditoPrazo" labelPlacement="end">Crédito a prazo</ion-radio><br />
-    <ion-radio value="PIX" labelPlacement="end">Pix</ion-radio>
+    <ion-radio value="pix" labelPlacement="end">Pix</ion-radio>
   </ion-radio-group>
 
-  
+  <h2>Exercicio 2</h2>
 
 </ion-content>
