@@ -1,0 +1,23 @@
+Anotação de Operadores de Compração
+
+1)
+= -> Atribuição: Usado para definir um valor para uma variável.
+
+Exemplo:
+
+let x = 10; // Atribui o valor 10 para x
+
+2)
+== -> Comparação de valores (igualdade solta): Compara os valores, mas não considera o tipo. Se os tipos forem diferentes, ele tenta convertê-los automaticamente.
+
+Exemplo:
+
+console.log(5 == "5"); // true (o JavaScript converte a string para número antes da comparação)
+
+3)
+=== -> Comparação de valores e tipos (igualdade estrita): Só retorna true se os valores e os tipos forem exatamente iguais.
+
+Exemplo:
+
+console.log(5 === "5"); // false (número e string são tipos diferentes)
+console.log(5 === 5);   // true (mesmo valor e mesmo tipo)
