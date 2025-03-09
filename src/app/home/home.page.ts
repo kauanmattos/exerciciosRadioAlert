@@ -7,34 +7,47 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  //Definindo Alerty
+  alertButtons = ['OK'];
+
+  //Exercicio 1 - Definindo valores
 
   valorCompra = 0;
   desconto = '';
   descontoEscolhido = '';
-  alertButtons = ['OK'];
+
 
   constructor() { }
 
+  //Função para Desconto - Exercicio 1
   calculoDesconto() {
-
+    //Variaveis para Desconto - Exercicio 1
     let valorDesconto = 0;
     let valorFinal = 0;
 
-    //Credito Vista
+    //Credito Vista - Exercicio 1
     if (this.desconto === 'creditoVista') {
-      valorDesconto = this.valorCompra * 0.05;
+      valorDesconto = (this.valorCompra * 5) / 100;
       valorFinal = this.valorCompra - valorDesconto;
-      this.descontoEscolhido = `Desconto de R$${valorDesconto} aplicado, Valor final: R$${valorFinal}`
+      this.descontoEscolhido = `Desconto de R$${valorDesconto} aplicado, Valor Final: R$${valorFinal}`
 
-    //Credito Prazo
+      //Credito Prazo - Exercicio 1
     } else if (this.desconto === 'creditoPrazo') {
       this.descontoEscolhido = `Nenhum desconto aplicado, Valor Final: R$${valorFinal}`
 
-    //PIX
+      //Pix - Exercicio 1
     } else if (this.desconto === 'pix') {
-      valorDesconto = this.valorCompra * 0.15;
+      valorDesconto = (this.valorCompra * 15) / 100;
       valorFinal = this.valorCompra - valorDesconto;
       this.descontoEscolhido = `Desconto de R$${valorDesconto} aplicado, Valor Final: R$${valorFinal}`
     }
   }
+
+  //Calculo IMC - Exercicio 2
+
+    altura = 0;
+    peso = 0;
+    pesoEscolhido = ''
+    imc = 0;
+    resultadoIMC = '';
 }

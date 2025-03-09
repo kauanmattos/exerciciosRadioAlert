@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title style="text-align: center;">
+    <ion-title>
       Exercicios Radio e Alert
     </ion-title>
   </ion-toolbar>
@@ -10,26 +10,65 @@
 
   <ion-alert
   trigger="ver-desconto"
-  header="Desconto escolhido"
+  header="Resultado de Desconto:"
   message="{{descontoEscolhido}}"
   [buttons]="alertButtons"
   ></ion-alert>
 
-  <h2>Exercicio 1</h2>
+  <!--Exercicio 1-->
+  <h1>Exercicio 1</h1>
 
+  <!--Definir Valor da Compra-->
   <ion-item>
-    <ion-input label="Valor da Compra" labelPlacement="floating" placeholder="Digite o valor da compra" type="number"
+    <ion-input aria-label="Tertiary input" color="tertiary" label="Valor da Compra" labelPlacement="floating" placeholder="Digite o valor da compra" type="number"
     [(ngModel)]="valorCompra"></ion-input>
   </ion-item>
 
-  <ion-button id="ver-desconto" (click)="calculoDesconto()">Ver Desconto</ion-button>
-
-  <ion-radio-group value="desconto" [(ngModel)]="desconto" id="ver-desconto" (click)="calculoDesconto()"><br>
-    <ion-radio value="creditoVista" labelPlacement="end">Crédito a vista</ion-radio><br />
-    <ion-radio value="creditoPrazo" labelPlacement="end">Crédito a prazo</ion-radio><br />
-    <ion-radio value="pix" labelPlacement="end">Pix</ion-radio>
+  <!---->
+  <ion-radio-group value="desconto" [(ngModel)]="desconto" (click)="calculoDesconto()"><br>
+    <ion-radio value="creditoVista" labelPlacement="end" color="tertiary">Crédito a vista</ion-radio><br />
+    <ion-radio value="creditoPrazo" labelPlacement="end" color="secondary">Crédito a prazo</ion-radio><br />
+    <ion-radio value="pix" labelPlacement="end" color="success">Pix</ion-radio>
   </ion-radio-group>
 
-  <h2>Exercicio 2</h2>
+  <br>
+  <ion-button id="ver-desconto" class="botaoDesconto" color="primary" (click)="calculoDesconto()">Verificar Desconto</ion-button>
+
+
+  <!--Exercicio 2-->
+
+  <ion-alert
+  trigger="ver-peso"
+  header="Resultado do Peso e Altura:"
+  message="{{pesoEscolhido}}"
+  [buttons]="alertButtons"
+  ></ion-alert>
+
+  <h1>Exercicio 2 - Cálculo de IMC</h1>
+
+   <!--Definir Altura-->
+   <ion-item>
+    <ion-input aria-label="Tertiary input" color="tertiary" label="Digite sua Altura" labelPlacement="floating" placeholder="Digite sua Altura" type="number"
+    [(ngModel)]="altura"></ion-input>
+  </ion-item>
+
+  <ion-accordion-group [multiple]="true" [value]="['first', 'third']" value="peso" [(ngModel)]="peso">
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Qual é a sua Faixa de Peso?</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-radio-group value="peso" [(ngModel)]="resultadoIMC"><br>
+        <ion-radio value="abaixodeCinquenta" labelPlacement="end" color="primary">Abaixo de 50kg</ion-radio>
+        <br><ion-radio value="cinquentaSetenta" labelPlacement="end" color="primary">50kg - 70kg</ion-radio>
+        <br><ion-radio value="setentaNoventa" labelPlacement="end" color="primary">70kg - 90kg</ion-radio>
+        <br><ion-radio value="acimaNoventa" labelPlacement="end" color="primary">Acima de 90kg</ion-radio>
+        </ion-radio-group>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <br>
+  <ion-button id="ver-peso" class="botaoPeso" color="primary">Verificar IMC</ion-button>
 
 </ion-content>
