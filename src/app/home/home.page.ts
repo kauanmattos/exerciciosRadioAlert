@@ -16,7 +16,6 @@ export class HomePage {
   desconto = '';
   descontoEscolhido = '';
 
-
   constructor() { }
 
   //Função para Desconto - Exercicio 1
@@ -78,5 +77,17 @@ calcularIMC(){
   } else {
     this.classificacao = 'Obesidade'
   }
+}
+
+// Calculo Juros Compostos
+
+tempoAplicacao: string = '';
+taxaJuros: number = 0;
+valorInicial: number = 0;
+montanteFinal: number = 0;
+
+calcularJurosCompostos() {
+const taxaDecimal = this.taxaJuros / 100;
+this.montanteFinal = this.valorInicial * Math.pow((1 + taxaDecimal), parseInt(this.tempoAplicacao));
 }
 }

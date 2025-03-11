@@ -1,4 +1,4 @@
-  <ion-header [translucent]="true">
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Exercicios Radio e Alert
@@ -8,20 +8,16 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-alert
-  trigger="ver-desconto"
-  header="Resultado de Desconto:"
-  message="{{descontoEscolhido}}"
-  [buttons]="alertButtons"
-  ></ion-alert>
+  <ion-alert trigger="ver-desconto" header="Resultado de Desconto:" message="{{descontoEscolhido}}"
+    [buttons]="alertButtons"></ion-alert>
 
   <!--Exercicio 1-->
-  <h1>Exercicio 1</h1>
+  <h1>Exercicio 1 - Calculadora de Descontos</h1>
 
   <!--Definir Valor da Compra-->
   <ion-item>
-    <ion-input aria-label="Tertiary input" color="tertiary" label="Valor da Compra" labelPlacement="floating" placeholder="Digite o valor da compra" type="number"
-    [(ngModel)]="valorCompra"></ion-input>
+    <ion-input aria-label="Tertiary input" color="tertiary" label="Valor da Compra" labelPlacement="floating"
+      placeholder="Digite o valor da compra" type="number" [(ngModel)]="valorCompra"></ion-input>
   </ion-item>
 
   <!---->
@@ -32,21 +28,18 @@
   </ion-radio-group>
 
   <br>
-  <ion-button id="ver-desconto" class="botaoDesconto" color="primary" (click)="calculoDesconto()">Verificar Desconto</ion-button>
+  <ion-button id="ver-desconto" class="botaoDesconto" color="primary" (click)="calculoDesconto()">Verificar
+    Desconto</ion-button>
 
 
   <!--Exercicio 2-->
 
-  <ion-alert
-  trigger="dispara-alert"
-  header="Classificação"
-  message="{{classificacao}}"
-  [buttons]="alertButtons"
-  ></ion-alert>
+  <ion-alert trigger="dispara-alert" header="Classificação" message="{{classificacao}}"
+    [buttons]="alertButtons"></ion-alert>
 
   <h1>Exercicio 2 - Cálculo de IMC</h1>
 
-   <!--Definir Altura-->
+  <!--Definir Altura-->
 
   <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
     <ion-accordion value="second">
@@ -55,20 +48,47 @@
       </ion-item>
       <div class="ion-padding" slot="content">
         <ion-radio-group [(ngModel)]="faixaPeso">
-        <ion-radio value="abaixodeCinquenta" labelPlacement="end" color="primary">Abaixo de 50kg</ion-radio>
-        <br><ion-radio value="cinquentaSetenta" labelPlacement="end" color="primary">50kg - 70kg</ion-radio>
-        <br><ion-radio value="setentaNoventa" labelPlacement="end" color="primary">70kg - 90kg</ion-radio>
-        <br><ion-radio value="acimaNoventa" labelPlacement="end" color="primary">Acima de 90kg</ion-radio>
+          <ion-radio value="abaixodeCinquenta" labelPlacement="end" color="primary">Abaixo de 50kg</ion-radio>
+          <br><ion-radio value="cinquentaSetenta" labelPlacement="end" color="primary">50kg - 70kg</ion-radio>
+          <br><ion-radio value="setentaNoventa" labelPlacement="end" color="primary">70kg - 90kg</ion-radio>
+          <br><ion-radio value="acimaNoventa" labelPlacement="end" color="primary">Acima de 90kg</ion-radio>
         </ion-radio-group>
       </div>
     </ion-accordion>
   </ion-accordion-group>
 
   <ion-item>
-    <ion-input aria-label="Tertiary input" color="tertiary" label="Digite sua Altura" labelPlacement="floating" placeholder="Digite sua Altura" type="number"
-    [(ngModel)]="altura"></ion-input>
+    <ion-input aria-label="Tertiary input" color="tertiary" label="Digite sua Altura" labelPlacement="floating"
+      placeholder="Digite sua Altura" type="number" [(ngModel)]="altura"></ion-input>
   </ion-item>
   <br>
   <ion-button id="dispara-alert" (click)="calcularIMC()" class="botaoPeso" color="primary">Verificar IMC</ion-button>
 
-</ion-content>
+  <!--Exercicio 3-->
+  <h1>Exercicio 3 - Cálculo de Taxa de Juros Compostos</h1>
+
+  <ion-alert trigger="dispara-alert" header="Classificação" message="{{montanteFinal}}" [buttons]="alertButtons">
+  </ion-alert>
+  <ion-content>
+    <ion-label>Escolha o Tempo de Aplicação</ion-label>
+    <ion-radio-group [(ngModel)]="tempoAplicacao">
+      <ion-item>
+        <ion-label>6 meses</ion-label>
+        <ion-radio value="6"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>12 meses</ion-label>
+        <ion-radio value="12"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>24 meses</ion-label>
+        <ion-radio value="24"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-label>Taxa de Juros Mensal (%)</ion-label>
+    <ion-input [(ngModel)]="taxaJuros" type="number" step="0.1" placeholder="Ex: 1.5"></ion-input>
+    <ion-label>Valor Inicial Investido (R$)</ion-label>
+    <ion-input [(ngModel)]="valorInicial" type="number" placeholder="Ex: 1000"></ion-input>
+    <ion-button expand="full" id="dispara-alert" (click)="calcularJurosCompostos()">Calcular
+      Montante</ion-button>
+  </ion-content>
