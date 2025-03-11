@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+  <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Exercicios Radio e Alert
@@ -38,27 +38,23 @@
   <!--Exercicio 2-->
 
   <ion-alert
-  trigger="ver-peso"
-  header="Resultado do Peso e Altura:"
-  message="{{pesoEscolhido}}"
+  trigger="dispara-alert"
+  header="Classificação"
+  message="{{classificacao}}"
   [buttons]="alertButtons"
   ></ion-alert>
 
   <h1>Exercicio 2 - Cálculo de IMC</h1>
 
    <!--Definir Altura-->
-   <ion-item>
-    <ion-input aria-label="Tertiary input" color="tertiary" label="Digite sua Altura" labelPlacement="floating" placeholder="Digite sua Altura" type="number"
-    [(ngModel)]="altura"></ion-input>
-  </ion-item>
 
-  <ion-accordion-group [multiple]="true" [value]="['first', 'third']" value="peso" [(ngModel)]="peso">
+  <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
     <ion-accordion value="second">
       <ion-item slot="header" color="light">
         <ion-label>Qual é a sua Faixa de Peso?</ion-label>
       </ion-item>
       <div class="ion-padding" slot="content">
-        <ion-radio-group value="peso" [(ngModel)]="resultadoIMC"><br>
+        <ion-radio-group [(ngModel)]="faixaPeso">
         <ion-radio value="abaixodeCinquenta" labelPlacement="end" color="primary">Abaixo de 50kg</ion-radio>
         <br><ion-radio value="cinquentaSetenta" labelPlacement="end" color="primary">50kg - 70kg</ion-radio>
         <br><ion-radio value="setentaNoventa" labelPlacement="end" color="primary">70kg - 90kg</ion-radio>
@@ -68,7 +64,11 @@
     </ion-accordion>
   </ion-accordion-group>
 
+  <ion-item>
+    <ion-input aria-label="Tertiary input" color="tertiary" label="Digite sua Altura" labelPlacement="floating" placeholder="Digite sua Altura" type="number"
+    [(ngModel)]="altura"></ion-input>
+  </ion-item>
   <br>
-  <ion-button id="ver-peso" class="botaoPeso" color="primary">Verificar IMC</ion-button>
+  <ion-button id="dispara-alert" (click)="calcularIMC()" class="botaoPeso" color="primary">Verificar IMC</ion-button>
 
 </ion-content>

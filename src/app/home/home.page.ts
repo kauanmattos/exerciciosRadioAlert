@@ -45,9 +45,38 @@ export class HomePage {
 
   //Calculo IMC - Exercicio 2
 
-    altura = 0;
-    peso = 0;
-    pesoEscolhido = ''
-    imc = 0;
-    resultadoIMC = '';
+  faixaPeso: string = '';
+  altura: number = 0;
+  imc: number = 0;
+  classificacao: string = '';
+
+calcularIMC(){
+
+  let peso: number = 0;
+  switch (this.faixaPeso) {
+    case 'abaixo50':
+      peso = 49;
+      break;
+      case '50a70':
+        peso = 60;
+        break;
+        case '70a90':
+          peso = 80;
+          break;
+          case 'acima90':
+            peso = 95;
+            break;
+  }
+  this.imc = peso / (this.altura*this.altura);
+
+  if (this.imc < 18.5){
+    this.classificacao = 'Abaixo do peso';
+  } else if (this.imc >= 18.5 && this.imc <= 24.9){
+    this.classificacao = 'Peso saudável';
+  } else if (this.imc >= 25 && this.imc <= 29.9){
+    this.classificacao = 'Sobrepeso';
+  } else {
+    this.classificacao = 'Obesidade'
+  }
+}
 }
